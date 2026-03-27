@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "546230757751",
+    "project_id": "bodyclone-ai",
+    "storage_bucket": "bodyclone-ai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546230757751:android:4afb4ff5a1d440c63d9972",
+        "android_client_info": {
+          "package_name": "com.bodyclone.digitaltwin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx1Il9bTCaTTH9uno_-F5XxVxjyGGY14A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

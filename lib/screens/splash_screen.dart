@@ -131,7 +131,11 @@ class SplashScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
+<<<<<<< HEAD
                     Navigator.of(context).push(
+=======
+                    Navigator.of(context).pushReplacement(
+>>>>>>> 2ea837fd8ac6cd2eabb1da670b0294a2aee12495
                       MaterialPageRoute(
                         builder: (context) => const AvatarScreen(),
                       ),

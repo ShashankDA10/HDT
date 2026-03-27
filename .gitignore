@@ -26,6 +26,7 @@ ENV/
 dist/
 build/
 
+<<<<<<< HEAD
 # Environment & secrets
 .env
 .env.local
@@ -37,6 +38,11 @@ ios/Runner/GoogleService-Info.plist
 # Logs
 backend/server.log
 *.log
+=======
+# Environment
+.env
+.env.local
+>>>>>>> 2ea837fd8ac6cd2eabb1da670b0294a2aee12495
 
 # OS
 .DS_Store

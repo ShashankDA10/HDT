@@ -1,7 +1,10 @@
 {
+<<<<<<< HEAD
   "firestore": {
     "indexes": "firestore.indexes.json"
   },
+=======
+>>>>>>> 2ea837fd8ac6cd2eabb1da670b0294a2aee12495
   "flutter": {
     "platforms": {
       "android": {

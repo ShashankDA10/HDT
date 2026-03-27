@@ -101,11 +101,14 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin permission_handler_android, com.baseflow.permissionhandler.PermissionHandlerPlugin", e);
     }
     try {
+<<<<<<< HEAD
       flutterEngine.getPlugins().add(new io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin shared_preferences_android, io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin", e);
     }
     try {
+=======
+>>>>>>> 2ea837fd8ac6cd2eabb1da670b0294a2aee12495
       flutterEngine.getPlugins().add(new com.csdcorp.speech_to_text.SpeechToTextPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin speech_to_text, com.csdcorp.speech_to_text.SpeechToTextPlugin", e);
