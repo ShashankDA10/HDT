@@ -8,7 +8,9 @@
       "Bash(winget search:*)",
       "Bash(powershell -Command \":*)",
       "Bash(export PATH=\"/c/Users/SampathBodyclone/Desktop/flutter/flutter/bin:$PATH\")",
-      "Bash(flutter analyze:*)"
+      "Bash(flutter analyze:*)",
+      "Bash(git config:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
