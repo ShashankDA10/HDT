@@ -1,0 +1,39 @@
+{
+  "firestore": {
+    "indexes": "firestore.indexes.json"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "bodyclone-ai",
+          "appId": "1:546230757751:android:4afb4ff5a1d440c63d9972",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "bodyclone-ai",
+          "configurations": {
+            "android": "1:546230757751:android:4afb4ff5a1d440c63d9972",
+            "web": "1:546230757751:web:95b6c9de207483fc3d9972"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "disallowLegacyRuntimeConfig": true,
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
+}

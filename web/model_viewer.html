@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Avatar</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: transparent;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <model-viewer
+        id="avatar-model"
+        src=""
+        alt="3D Avatar"
+        auto-rotate
+        camera-controls
+        interaction-policy="allow-when-focused"
+        camera-orbit="0deg 75deg 105%"
+        style="width: 100%; height: 100%; background: transparent;">
+    </model-viewer>
+    <script>
+        const modelViewer = document.getElementById('avatar-model');
+        let resetTimer = null;
+        let isInteracting = false;
+        const RESET_DELAY = 3000; // 3 seconds of inactivity before reset
+        const DEFAULT_CAMERA_ORBIT = '0deg 75deg 105%';
+        
+        // Store original camera position
+        let originalCameraOrbit = DEFAULT_CAMERA_ORBIT;
+        
+        // Function to reset camera to original position
+        function resetCamera() {
+            if (modelViewer && !isInteracting) {
+                // Smoothly animate back to original position
+                modelViewer.cameraOrbit = originalCameraOrbit;
+                modelViewer.updateFraming();
+            }
+        }
+        
+        // Function to start reset timer
+        function startResetTimer() {
+            // Clear existing timer
+            if (resetTimer) {
+                clearTimeout(resetTimer);
+            }
+            
+            // Set new timer
+            resetTimer = setTimeout(() => {
+                resetCamera();
+            }, RESET_DELAY);
+        }
+        
+        // Detect when user starts interacting
+        function onInteractionStart() {
+            isInteracting = true;
+            if (resetTimer) {
+                clearTimeout(resetTimer);
+            }
+        }
+        
+        // Detect when user stops interacting
+        function onInteractionEnd() {
+            isInteracting = false;
+            startResetTimer();
+        }
+        
+        // Listen for interaction events
+        if (modelViewer) {
+            // Mouse events
+            modelViewer.addEventListener('mousedown', onInteractionStart);
+            modelViewer.addEventListener('mouseup', onInteractionEnd);
+            modelViewer.addEventListener('mousemove', function(e) {
+                if (e.buttons > 0) {
+                    onInteractionStart();
+                } else {
+                    onInteractionEnd();
+                }
+            });
+            
+            // Touch events
+            modelViewer.addEventListener('touchstart', onInteractionStart);
+            modelViewer.addEventListener('touchend', onInteractionEnd);
+            modelViewer.addEventListener('touchcancel', onInteractionEnd);
+            
+            // Wheel/scroll events
+            modelViewer.addEventListener('wheel', function() {
+                onInteractionStart();
+                onInteractionEnd();
+            });
+            
+            // When model loads, store the initial camera position
+            modelViewer.addEventListener('load', function() {
+                originalCameraOrbit = modelViewer.cameraOrbit || DEFAULT_CAMERA_ORBIT;
+            });
+        }
+        
+        // Get the model path from Flutter
+        window.addEventListener('flutterInAppWebViewPlatformReady', function(event) {
+            // Model path will be set by Flutter
+        });
+        
+        // Listen for messages from Flutter to update model
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'loadModel') {
+                if (modelViewer) {
+                    modelViewer.src = event.data.src;
+                    // Reset camera when model is loaded
+                    setTimeout(() => {
+                        originalCameraOrbit = modelViewer.cameraOrbit || DEFAULT_CAMERA_ORBIT;
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

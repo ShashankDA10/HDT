@@ -1,0 +1,9 @@
+# Enable CORS for GLB files
+<IfModule mod_headers.c>
+    <FilesMatch "\.(glb|gltf)$">
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type"
+    </FilesMatch>
+</IfModule>
+

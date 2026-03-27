@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Get-Command flutter -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source; Get-ChildItem ''C:\\\\Users\\\\SampathBodyclone'' -Recurse -Filter ''flutter.bat'' -ErrorAction SilentlyContinue | Select-Object -First 3 -ExpandProperty FullName\")",
+      "Read(//c//**)",
+      "Read(//c/Users/SampathBodyclone/AppData/Local/Programs//**)",
+      "Read(//c/Users/SampathBodyclone/AppData/Roaming//**)",
+      "Bash(winget search:*)",
+      "Bash(powershell -Command \":*)",
+      "Bash(export PATH=\"/c/Users/SampathBodyclone/Desktop/flutter/flutter/bin:$PATH\")",
+      "Bash(flutter analyze:*)"
+    ]
+  }
+}

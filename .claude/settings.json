@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/raj36/HDT -type f -name *.ts -o -name *.js)",
+      "Bash(find /c/Users/raj36/HDT -name README* -o -name *.md)",
+      "Bash(flutter pub:*)"
+    ]
+  }
+}

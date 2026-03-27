@@ -1,0 +1,49 @@
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+.metadata
+*.iml
+*.ipr
+*.iws
+.idea/
+android/.gradle/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Environment & secrets
+.env
+.env.local
+backend/.env
+**/firebase-service-account.json
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Logs
+backend/server.log
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large video files
+*.mp4
+*.mov
+*.avi
+
